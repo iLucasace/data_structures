@@ -2,7 +2,7 @@
 #include "aux.h"
 
 void main() {
-    Pilha *pilha;
+    Pilha *pilha = (Pilha*)malloc(sizeof(Pilha));
     pilha->topo = NULL;
 
     push(pilha, 44);
