@@ -12,7 +12,10 @@ void main() {
     MAKE_SET(vetor);
     UNION(vetor, 3, 8);
     UNION(vetor, 0, 3);
+    
     UNION(vetor, 1, 4);
+    UNION(vetor, 2, 1);
+    UNION(vetor, 1, 7);
 
     for(int aux = 0; aux < TAM; aux++) {
         printf("Valor -> %d / Representante -> %d\n", aux, vetor[aux]);

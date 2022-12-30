@@ -13,7 +13,10 @@ void main() {
     MAKE_SET();
     UNION(3, 8);
     UNION(0, 3);
+
     UNION(1, 4);
+    UNION(2, 1);
+    UNION(1, 7);
 
     for(int aux = 0; aux < TAM; aux++) {
         printf("Valor -> %d / Representante -> %d\n", aux, pai[aux]);
@@ -48,6 +51,6 @@ void UNION(int x, int y) {
         pai[rx] = ry;
 
         if(rank[rx] == rank[ry])
-            rank[ry]++;
+            rank[ry] = rank[ry] + 1;
     }
 }

@@ -19,7 +19,10 @@ void main() {
     MAKE_SET(conjuntos);
     UNION(conjuntos, 3, 8);
     UNION(conjuntos, 0, 3);
+
     UNION(conjuntos, 1, 4);
+    UNION(conjuntos, 2, 1);
+    UNION(conjuntos, 1, 7);
 
     for(int aux = 0; aux < TAM; aux++) {
         printf("Valor -> %d / Representante -> %d\n", conjuntos[aux]->valor, conjuntos[aux]->repr->valor);
