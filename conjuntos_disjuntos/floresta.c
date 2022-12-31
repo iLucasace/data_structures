@@ -19,7 +19,7 @@ void main() {
     UNION(1, 7);
 
     for(int aux = 0; aux < TAM; aux++) {
-        printf("Valor -> %d / Representante -> %d\n", aux, pai[aux]);
+        printf("Valor -> %d / Pai -> %d\n", aux, pai[aux]);
     }
     printf("\n");
 }
