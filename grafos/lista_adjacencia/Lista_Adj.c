@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 #define BRANCO 0
 #define CINZA 1
@@ -321,7 +322,7 @@ void bfs(int nos, Nó** lista, int no_inicial) {
 
     while (frente != tras) {
         int u = Q[frente++];
-        printf("Explorando nó: %d\n", u + 1);
+        printf("-> Explorando nó: %d\n", u + 1);
 
         Nó* aux = lista[u];
         while (aux != NULL) {
@@ -398,7 +399,7 @@ void dfs_visit(Nó **lista, int u, int *cor, int *d, int *f, int *pi, int *tempo
     (*tempo)++;
     d[u] = *tempo;
     cor[u] = CINZA; // Marcar o nó como visitado (cor cinza)
-    printf("Visitando nó: %d\n", u + 1);
+    printf("-> Visitando nó: %d\n", u + 1);
 
     imprimir_vetores(d, f, cor, pi, nos);
 
@@ -419,7 +420,7 @@ void dfs_visit(Nó **lista, int u, int *cor, int *d, int *f, int *pi, int *tempo
     imprimir_vetores(d, f, cor, pi, nos);
 }
 
-void dfs(Nó **lista, int nos) {
+void dfs(int nos, Nó **lista) {
     int *cor = (int*)malloc(nos * sizeof(int));
     int *d = (int*)malloc(nos * sizeof(int));
     int *f = (int*)malloc(nos * sizeof(int));
@@ -429,6 +430,8 @@ void dfs(Nó **lista, int nos) {
     for(int i = 0; i < nos; i++) {
         cor[i] = BRANCO;
         pi[i] = -1;
+        d[i] = 0;
+        f[i] = 0;
     }
 
     for(int i = 0; i < nos; i++) {
@@ -439,7 +442,7 @@ void dfs(Nó **lista, int nos) {
 
     imprimir_vetores(d, f, cor, pi, nos);
 }
-    
+
 int main(){
     int nos, arestas, tipo;
     scanf("%d %d %d", &nos, &arestas, &tipo);
@@ -493,10 +496,9 @@ int main(){
     completo(nos, lista);
     regular(nos, lista);
 
-
     printf("--------------------\nBFS:\n\n");
     bfs(nos, lista, 1 - 1);
     printf("--------------------\nDFS:\n\n");
-    dfs(lista, nos);
+    dfs(nos, lista);
 
 }
